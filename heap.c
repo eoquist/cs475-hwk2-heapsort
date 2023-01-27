@@ -18,8 +18,12 @@
 void heapSort(Employee *A, int n)
 {
 	// TODO - BuildHeap on the heap
+	buildHeap(A, n);
 
 	// TODO - while n > 0:
+	while (n > 0)
+	{
+	}
 	// TODO - swap A[n-1] with A[0], since A[0] is the smallest number.
 	// TODO - A[n-1] now sorted in place, so decrement n
 	// TODO - Heapify the elements from A[0] up to A[n-1] (which leaves the newly sorted element alone)
@@ -77,4 +81,8 @@ void swap(Employee *e1, Employee *e2)
 void printList(Employee *A, int n)
 {
 	// TODO
+	for (int i = 0; i < n; i++)
+	{
+		printf("%d ", *(A + i));
+	}
 }
