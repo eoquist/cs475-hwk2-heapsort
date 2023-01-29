@@ -71,6 +71,11 @@ void heapify(Employee *A, int i, int n)
 void swap(Employee *e1, Employee *e2)
 {
 	// TODO
+	datatype ptr_e1 *e1 = &e1;
+    datatype ptr_e2 *e2 = &e2;
+    datatype tmp = *ptr_e1;
+    *ptr_e1 = *ptr_e2;
+    *ptr_e2 = tmp;
 }
 
 /**
