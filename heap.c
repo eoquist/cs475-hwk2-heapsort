@@ -24,10 +24,12 @@ void heapSort(Employee *A, int n)
 	while (n > 0)
 	{
 		// TODO - swap A[n-1] with A[0], since A[0] is the smallest number.
+		swap(*A[n - 1], *A[0]);
 		// TODO - A[n-1] now sorted in place, so decrement n
-		// TODO - Heapify the elements from A[0] up to A[n-1] (which leaves the newly sorted element alone)
-		// TODO - Decrement n by 1
 		n--;
+		// TODO - Heapify the elements from A[0] up to A[n-1] (which leaves the newly sorted element alone)
+		heapify(&A, 0, n);
+		// TODO - Decrement n by 1
 	}
 }
 

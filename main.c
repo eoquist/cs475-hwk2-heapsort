@@ -3,12 +3,13 @@
 #include "heap.h"
 
 // constants
-#define MAX_EMPLOYEES 128 /** maximum allowed length of Employees array */
+#define MAX_EMPLOYEES 5 /** maximum allowed length of Employees array */
 
 int main(int argc, char *argv[])
 {
-	// The driver function should create an array of MAX_EMPLOYEES elements, and fill it with values from the user.
-
+	Employee
+		// The driver function should create an array of MAX_EMPLOYEES elements, and fill it with values from the user.
+		fgets(tmp, MAX_INPUT_LEN, stdin);
 	// TODO
 	Employee e1, e2;
 	strcpy(e1.name, "1");
