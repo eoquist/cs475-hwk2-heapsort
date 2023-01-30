@@ -1,8 +1,8 @@
 /*
  * heapsort.c
  *
- *  Created on: Jul 1, 2013
- *      Author:
+ *  Created on: Jul 1, 2023
+ *      Author: Emilee Oquist
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,10 +23,12 @@ void heapSort(Employee *A, int n)
 	// TODO - while n > 0:
 	while (n > 0)
 	{
+		// TODO - swap A[n-1] with A[0], since A[0] is the smallest number.
+		// TODO - A[n-1] now sorted in place, so decrement n
+		// TODO - Heapify the elements from A[0] up to A[n-1] (which leaves the newly sorted element alone)
+		// TODO - Decrement n by 1
+		n--;
 	}
-	// TODO - swap A[n-1] with A[0], since A[0] is the smallest number.
-	// TODO - A[n-1] now sorted in place, so decrement n
-	// TODO - Heapify the elements from A[0] up to A[n-1] (which leaves the newly sorted element alone)
 }
 
 /**
@@ -68,14 +70,11 @@ void heapify(Employee *A, int i, int n)
  * @param *e1 An Employee
  * @param *e2 Another Employee to swap with
  */
-void swap(Employee *e1, Employee *e2)
+void swap(Employee *e1, Employee *e2) // a swap accepting two variables - not pointers
 {
-	// TODO
-	datatype ptr_e1 *e1 = &e1;
-    datatype ptr_e2 *e2 = &e2;
-    datatype tmp = *ptr_e1;
-    *ptr_e1 = *ptr_e2;
-    *ptr_e2 = tmp;
+	Employee *tmp = e1;
+	e1 = e2;
+	e2 = tmp;
 }
 
 /**
@@ -88,6 +87,6 @@ void printList(Employee *A, int n)
 	// TODO
 	for (int i = 0; i < n; i++)
 	{
-		printf("%d ", *(A + i));
+		printf("%s", *(A + i)->name);
 	}
 }
