@@ -60,7 +60,7 @@ void buildHeap(Employee *A, int n)
  */
 void heapify(Employee *A, int i, int n)
 {
-	int l_ind = i*2, r_ind = i*2+1; // get index of left and right child of element i
+	int l_ind = 2*(i+1)-1, r_ind = 2*(i+1); // get index of left and right child of element i
 	int smaller = i;
 	
 	// TODO - determine which child has a smaller salary. 
@@ -98,4 +98,5 @@ void printList(Employee *A, int n)
 	{
 		printf("[id=%s sal=%d]", A[i].name, A[i].salary);
 	}
+	printf("\n");
 }
