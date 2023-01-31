@@ -15,15 +15,12 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < MAX_EMPLOYEES; i++)
 	{
 		printf("Enter the name of an Employee: ");
-		scanf("%s", &name);
-		E[i].name = name;
+		scanf("%s", &E[i].name);
+		// E[i].name = name;
 
 		printf("Enter Employee %s's salary: ", name);
-		scanf("%d", &salary);
-		E[i].salary = salary;
+		scanf("%s", &E[i].salary);
+		// E[i].salary = salary;
 	}
-
-	// fgets(input, MAX_NAME_LEN, stdin);
-
 	return 0;
 }
