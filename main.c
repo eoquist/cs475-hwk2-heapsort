@@ -12,15 +12,21 @@ int main(int argc, char *argv[])
 	char name[MAX_NAME_LEN];
 	int salary;
 
+	Employee test_worker = { "Goose Duckduck\0", 2000};
+    for (int i = 0; i < MAX_EMPLOYEES; ++i) {
+        //
+    }
+
+
 	for (int i = 0; i < MAX_EMPLOYEES; i++)
 	{
 		printf("Enter the name of an Employee: ");
-		scanf("%s", &E[i].name);
-		// E[i].name = name;
+		scanf("%s", &name);
+		E[i].name = name;
 
-		printf("Enter Employee %s's salary: ", name);
-		scanf("%s", &E[i].salary);
-		// E[i].salary = salary;
+		printf("Enter Employee %s's salary: ", &name);
+		scanf("%d", &salary);
+		E[i].salary = salary;
 	}
 	return 0;
 }
