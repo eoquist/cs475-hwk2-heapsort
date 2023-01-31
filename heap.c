@@ -17,6 +17,9 @@
  */
 void heapSort(Employee *A, int n)
 {
+	scanf("Before: ");
+	printList(A,n);
+
 	buildHeap(A, n);
 
 	while (n > 0) // no clue lmao !!!
@@ -25,6 +28,9 @@ void heapSort(Employee *A, int n)
 		n--;
 		heapify(A, 0, n);
 	}
+
+	scanf("After: ");
+	printList(A,n);
 }
 
 /**
@@ -88,9 +94,8 @@ void swap(Employee *e1, Employee *e2) // a swap accepting two ??? variables vs p
  */
 void printList(Employee *A, int n)
 {
-	// TODO
 	for (int i = 0; i < n; i++)
 	{
-		printf("%s", A[i].name);
+		printf("[id=%s sal=%d]", A[i].name, A[i].salary);
 	}
 }
