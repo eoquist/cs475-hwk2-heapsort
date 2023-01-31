@@ -5,22 +5,25 @@
 // constants
 #define MAX_EMPLOYEES 5 /** maximum allowed length of Employees array */
 
+// The driver function should create an array of MAX_EMPLOYEES elements, and fill it with values from the user.
 int main(int argc, char *argv[])
 {
-	Employee
-		// The driver function should create an array of MAX_EMPLOYEES elements, and fill it with values from the user.
-		fgets(tmp, MAX_INPUT_LEN, stdin);
-	// TODO
-	Employee e1, e2;
-	strcpy(e1.name, "1");
-	strcpy(e2.name, "2");
+	Employee E[MAX_EMPLOYEES];
+	char name[MAX_NAME_LEN];
+	int salary;
 
-	e1.salary = 10;
-	e2.salary = 20;
+	for (int i = 0; i < MAX_EMPLOYEES; i++)
+	{
+		printf("Enter the name of an Employee: ");
+		scanf("%s", &name);
+		E[i].name = name;
 
-	swap(&e1, &e2);
-	printf("%s", e1.name);
-	printf("%s", e2.name);
+		printf("Enter Employee %s's salary: ", name);
+		scanf("%d", &salary);
+		E[i].salary = salary;
+	}
+
+	// fgets(input, MAX_NAME_LEN, stdin);
 
 	return 0;
 }

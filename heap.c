@@ -10,7 +10,7 @@
 #include "heap.h"
 
 /**
- * Sorts a list of n employees in descending order
+ * Sorts a list of n employees in descending order of Salary
  *
  * @param	*A	Pointer to the list of employees
  * @param	n	Size of the heap
@@ -24,12 +24,11 @@ void heapSort(Employee *A, int n)
 	while (n > 0)
 	{
 		// TODO - swap A[n-1] with A[0], since A[0] is the smallest number.
-		swap(*A[n - 1], *A[0]);
+		swap(&A[n - 1], &A[0]);
 		// TODO - A[n-1] now sorted in place, so decrement n
 		n--;
 		// TODO - Heapify the elements from A[0] up to A[n-1] (which leaves the newly sorted element alone)
 		heapify(&A, 0, n);
-		// TODO - Decrement n by 1
 	}
 }
 
@@ -44,6 +43,10 @@ void heapSort(Employee *A, int n)
 void buildHeap(Employee *A, int n)
 {
 	// TODO - heapify() every element from A[n/2] down-to A[0]
+	for (int i = (n / 2) - 1; i >= 0; i--)
+	{
+		heapify(&A, n, i);
+	}
 }
 
 /**
@@ -72,7 +75,7 @@ void heapify(Employee *A, int i, int n)
  * @param *e1 An Employee
  * @param *e2 Another Employee to swap with
  */
-void swap(Employee *e1, Employee *e2) // a swap accepting two variables - not pointers
+void swap(Employee *e1, Employee *e2) // a swap accepting two ??? variables vs pointers
 {
 	Employee *tmp = e1;
 	e1 = e2;
