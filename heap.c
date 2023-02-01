@@ -64,18 +64,22 @@ void heapify(Employee *A, int i, int n)
 	int smaller = i;
 
 	// TODO - determine which child has a smaller salary.
-	if (A[i].salary > A[l_ind].salary && A[i].salary > A[r_ind].salary)
+
+	if ((l_ind < n) && A[l_ind].salary < A[smaller].salary)
 	{
-		if (A[l_ind].salary < A[r_ind].salary)
-		{
-			smaller = l_ind;
-		}
-		else if (A[l_ind].salary > A[r_ind].salary)
-		{
-			smaller = r_ind;
-		}
+		smaller = l_ind;
+	}
+	if ((r_ind < n) && A[r_ind].salary < A[l_ind].salary)
+	{
+		smaller = r_ind;
 	}
 
+	if (smaller == i)
+	{ //
+		swap(&A[i], &A[smaller]);
+
+		heapify(A, i, n);
+	}
 	// TODO - recursively check if the salary at A[i] > the salary at A[smaller]. If it is, swap the two.
 	//			Then recursively heapify A[smaller].
 	// TODO - Continue recursion as long as i is within range AND either right_child and left_child are still within range.
