@@ -17,20 +17,15 @@
  */
 void heapSort(Employee *A, int n)
 {
-	scanf("Before: ");
-	printList(A, n);
-
 	buildHeap(A, n);
 
-	while (n > 0) // no clue lmao !!!
+	n--; // for index
+	while (n > 0)
 	{
-		swap(&A[n - 1], &A[0]);
-		n--;
+		swap(&A[n], &A[0]);
 		heapify(A, 0, n);
+		n--;
 	}
-
-	scanf("After: ");
-	printList(A, n);
 }
 
 /**
@@ -41,12 +36,11 @@ void heapSort(Employee *A, int n)
  * @param	*A	Pointer to the list of employees
  * @param	n	Size of the heap
  */
-void buildHeap(Employee *A, int n)
+void buildHeap(Employee *A, int n) // TODO - heapify() every element from A[n/2] down-to A[0]
 {
-	// TODO - heapify() every element from A[n/2] down-to A[0]
-	for (int i = (n / 2) - 1; i >= 0; i--)
+	for (int i = n / 2; i >= 0; i--)
 	{
-		heapify(A, n, i);
+		heapify(A, i, n);
 	}
 }
 
@@ -60,27 +54,26 @@ void buildHeap(Employee *A, int n)
  */
 void heapify(Employee *A, int i, int n)
 {
-	int l_ind = 2 * (i + 1) - 1, r_ind = 2 * (i + 1); // get index of left and right child of element i
-	int smaller = i;
+	// get index of left and right child of element i
+	int l_ind = 2 * (i + 1) - 1,
+		r_ind = 2 * (i + 1);
+	int smaller = -1;
 
-	// TODO - determine which child has a smaller salary.
-	if (i < n)
+	// determine which child has a smaller salary.
+	if (l_ind < n)
 	{
-		if ((l_ind < n) && A[l_ind].salary < A[i].salary)
-		{
-			smaller = l_ind;
-		}
+		smaller = l_ind;
+
 		if ((r_ind < n) && A[r_ind].salary < A[l_ind].salary)
 		{
 			smaller = r_ind;
 		}
-	}
 
-	if (smaller != i) // ???
-	{
-		swap(&A[i], &A[smaller]);
-
-		heapify(A, i, n);
+		if (A[i].salary > A[smaller].salary)
+		{
+			swap(&A[i], &A[smaller]);
+		}
+		heapify(A, smaller, n);
 	}
 }
 
@@ -89,11 +82,11 @@ void heapify(Employee *A, int i, int n)
  * @param *e1 An Employee
  * @param *e2 Another Employee to swap with
  */
-void swap(Employee *e1, Employee *e2) // a swap accepting two ??? variables vs pointers
+void swap(Employee *e1, Employee *e2) // a swap accepting two pointers
 {
-	Employee *tmp = e1;
-	e1 = e2;
-	e2 = tmp;
+	Employee tmp = *e1;
+	*e1 = *e2;
+	*e2 = tmp;
 }
 
 /**
