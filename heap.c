@@ -18,7 +18,7 @@
 void heapSort(Employee *A, int n)
 {
 	scanf("Before: ");
-	printList(A,n);
+	printList(A, n);
 
 	buildHeap(A, n);
 
@@ -30,7 +30,7 @@ void heapSort(Employee *A, int n)
 	}
 
 	scanf("After: ");
-	printList(A,n);
+	printList(A, n);
 }
 
 /**
@@ -60,16 +60,22 @@ void buildHeap(Employee *A, int n)
  */
 void heapify(Employee *A, int i, int n)
 {
-	int l_ind = 2*(i+1)-1, r_ind = 2*(i+1); // get index of left and right child of element i
+	int l_ind = 2 * (i + 1) - 1, r_ind = 2 * (i + 1); // get index of left and right child of element i
 	int smaller = i;
-	
-	// TODO - determine which child has a smaller salary. 
-	if(A[l_ind].salary < A[r_ind].salary){
-		smaller = l_ind;
-	} else if(A[l_ind].salary > A[r_ind].salary){
-		smaller = r_ind;
+
+	// TODO - determine which child has a smaller salary.
+	if (A[i].salary > A[l_ind].salary && A[i].salary > A[r_ind].salary)
+	{
+		if (A[l_ind].salary < A[r_ind].salary)
+		{
+			smaller = l_ind;
+		}
+		else if (A[l_ind].salary > A[r_ind].salary)
+		{
+			smaller = r_ind;
+		}
 	}
-	
+
 	// TODO - recursively check if the salary at A[i] > the salary at A[smaller]. If it is, swap the two.
 	//			Then recursively heapify A[smaller].
 	// TODO - Continue recursion as long as i is within range AND either right_child and left_child are still within range.
